@@ -1,0 +1,44 @@
+Nation Pulse - Project Requirements
+
+Core Features:
+- Single page dashboard using Next.js and Shadcn/UI
+- Country selector component (starting with Germany)
+- Multiple data visualizations using charts
+
+Data Categories:
+
+1. Economic Indicators
+   - GDP growth
+   - Unemployment rate
+   - Inflation rate
+   - Public debt
+   - Trade balance
+
+2. Social Well-being
+   - Life satisfaction
+   - Work-life balance
+   - Social support
+   - Personal security
+
+3. Health & Safety
+   - Healthcare access
+   - Life expectancy
+   - Crime rates
+   - Personal safety perception
+
+4. Financial Well-being
+   - Household income
+   - Household debt
+   - Housing affordability
+   - Savings rate
+
+5. Public Finance
+   - Government deficit/surplus
+   - Tax revenue
+   - Public spending
+
+Design Requirements:
+- Black and white minimalistic design
+- Clean and professional layout
+- Interactive data visualization
+- Responsive design for all screen sizes
