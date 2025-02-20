@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chart } from "@/components/ui/chart";
 import { countryData } from "@/data/countries";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Dashboard() {
   const [selectedCountry, setSelectedCountry] = useState("de");
@@ -17,19 +18,28 @@ export default function Dashboard() {
         <div className="space-y-8">
           {/* Header */}
           <div className="flex flex-col space-y-4 md:flex-row md:justify-between md:items-center">
-            <h1 className="text-4xl font-bold">Nation Pulse 🌐</h1>
-            <Select value={selectedCountry} onValueChange={setSelectedCountry}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Select country" />
-              </SelectTrigger>
-              <SelectContent>
-                {countryData.map((country) => (
-                  <SelectItem key={country.id} value={country.id}>
-                    {country.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div>
+              <h1 className="text-4xl font-bold">Nation Pulse 🌐</h1>
+              <p className="mt-2 text-muted-foreground">
+                A comprehensive dashboard visualizing economic and social indicators across different countries.
+                Track GDP growth, unemployment rates, and various other metrics to understand national development trends.
+              </p>
+            </div>
+            <div className="flex items-center gap-4">
+              <Select value={selectedCountry} onValueChange={setSelectedCountry}>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Select country" />
+                </SelectTrigger>
+                <SelectContent>
+                  {countryData.map((country) => (
+                    <SelectItem key={country.id} value={country.id}>
+                      {country.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <ModeToggle />
+            </div>
           </div>
 
           {/* Main Dashboard */}
@@ -204,6 +214,20 @@ export default function Dashboard() {
           </Tabs>
         </div>
       </div>
+
+      <a
+        target="_blank"
+        rel="noopener"
+        className="fixed bottom-0 right-0 z-50 flex items-center gap-2 border-t border-l rounded-tl-md bg-background text-foreground p-2 text-sm"
+        href="https://alexfranz.com/"
+      >
+        <img
+          src="https://alexfranz.com/images/alex_square.png"
+          alt="Alex Franz"
+          className="w-8 h-8 rounded"
+        />
+        <p>by Alex Franz</p>
+      </a>
     </div>
-  )
+  );
 }

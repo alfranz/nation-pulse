@@ -2,6 +2,10 @@
 
 ## Dashboard Requirements
 
+I want you to help me to create a Next.js website - the project is called "Nation Pulse" This should be a single page dashboard using shadcn where I can choose a country and it should then visualize different statistics and economic indicators to  visualize the economic health of a country. It should not only show economic data but also survey data, for example, how people feel in the country, kind of economic well-being, happiness, security, crime statistics, financial, maybe fiscal data as well. GDP start with Germany first, but there should be an option to also select other countries. The data should be stored as part of the code. Also create a folder where I store all the prompts that I just mentioned to you in a  text file.
+
+Use a blach-white minimalistic design.
+
 ### Core Features
 
 - Single page dashboard using Next.js and Shadcn/UI
