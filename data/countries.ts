@@ -7,16 +7,20 @@ export interface CountryData {
       unemploymentRate: { year: number; value: number }[];
       inflationRate: { year: number; value: number }[];
       publicDebt: { year: number; value: number }[];
-      tradeBalance: { year: number; value: number }[];
+      incomeInequality: { year: number; value: number }[];
     };
     social: {
       lifeSatisfaction: { year: number; value: number }[];
       workLifeBalance: { year: number; value: number }[];
       socialSupport: { year: number; value: number }[];
       personalSecurity: { year: number; value: number }[];
+      lifeExpectancy: { year: number; value: number }[];
+      healthcareAccess: { year: number; value: number }[];
+      crimeRates: { year: number; value: number }[];
+      homicideRates: { year: number; value: number }[];
+      happinessIndex: { year: number; value: number }[];
     };
     health: {
-      healthcareAccess: { year: number; value: number }[];
       lifeExpectancy: { year: number; value: number }[];
       crimeRates: { year: number; value: number }[];
       safetyPerception: { year: number; value: number }[];
@@ -31,6 +35,34 @@ export interface CountryData {
       governmentBalance: { year: number; value: number }[];
       taxRevenue: { year: number; value: number }[];
       publicSpending: { year: number; value: number }[];
+    };
+    technology: {
+      rdExpenditure: { year: number; value: number }[];
+      internetPenetration: { year: number; value: number }[];
+      stemGraduates: { year: number; value: number }[];
+      patentApplications: { year: number; value: number }[];
+      renewableEnergy: { year: number; value: number }[];
+    };
+    education: {
+      literacyRate: { year: number; value: number }[];
+      schoolEnrollment: { year: number; value: number }[];
+      pisaScores: { year: number; value: number }[];
+      educationExpenditure: { year: number; value: number }[];
+      stemGraduatesPerc: { year: number; value: number }[];
+    };
+    civic: {
+      freedomSpeechIndex: { year: number; value: number }[];
+      pressFreedom: { year: number; value: number }[];
+      publicOpinionFreeSpeech: { year: number; value: number }[];
+      voterTurnout: { year: number; value: number }[];
+      trustInGovernment: { year: number; value: number }[];
+    };
+    environment: {
+      carbonEmissions: { year: number; value: number }[];
+      airQualityIndex: { year: number; value: number }[];
+      forestCoverage: { year: number; value: number }[];
+      renewableEnergyUsage: { year: number; value: number }[];
+      waterQuality: { year: number; value: number }[];
     };
   };
 }
@@ -69,12 +101,12 @@ export const countryData: CountryData[] = [
           { year: 2022, value: 66.3 },
           { year: 2023, value: 64.7 }
         ],
-        tradeBalance: [
-          { year: 2019, value: 7.1 },
-          { year: 2020, value: 5.9 },
-          { year: 2021, value: 6.8 },
-          { year: 2022, value: 3.5 },
-          { year: 2023, value: 4.2 }
+        incomeInequality: [
+          { year: 2019, value: 31.9 },
+          { year: 2020, value: 31.7 },
+          { year: 2021, value: 31.5 },
+          { year: 2022, value: 31.8 },
+          { year: 2023, value: 31.6 }
         ]
       },
       social: {
@@ -105,9 +137,14 @@ export const countryData: CountryData[] = [
           { year: 2021, value: 8.7 },
           { year: 2022, value: 8.6 },
           { year: 2023, value: 8.5 }
-        ]
-      },
-      health: {
+        ],
+        lifeExpectancy: [
+          { year: 2019, value: 81.3 },
+          { year: 2020, value: 81.1 },
+          { year: 2021, value: 80.9 },
+          { year: 2022, value: 81.2 },
+          { year: 2023, value: 81.4 }
+        ],
         healthcareAccess: [
           { year: 2019, value: 9.2 },
           { year: 2020, value: 8.8 },
@@ -115,6 +152,29 @@ export const countryData: CountryData[] = [
           { year: 2022, value: 9.1 },
           { year: 2023, value: 9.2 }
         ],
+        crimeRates: [
+          { year: 2019, value: 6.7 },
+          { year: 2020, value: 6.5 },
+          { year: 2021, value: 6.3 },
+          { year: 2022, value: 6.4 },
+          { year: 2023, value: 6.2 }
+        ],
+        homicideRates: [
+          { year: 2019, value: 0.9 },
+          { year: 2020, value: 0.8 },
+          { year: 2021, value: 0.9 },
+          { year: 2022, value: 0.8 },
+          { year: 2023, value: 0.7 }
+        ],
+        happinessIndex: [
+          { year: 2019, value: 7.1 },
+          { year: 2020, value: 7.0 },
+          { year: 2021, value: 7.2 },
+          { year: 2022, value: 7.1 },
+          { year: 2023, value: 7.3 }
+        ]
+      },
+      health: {
         lifeExpectancy: [
           { year: 2019, value: 81.3 },
           { year: 2020, value: 81.1 },
@@ -188,6 +248,154 @@ export const countryData: CountryData[] = [
           { year: 2021, value: 49.1 },
           { year: 2022, value: 47.2 },
           { year: 2023, value: 46.1 }
+        ]
+      },
+      technology: {
+        rdExpenditure: [
+          { year: 2019, value: 3.2 },
+          { year: 2020, value: 3.1 },
+          { year: 2021, value: 3.3 },
+          { year: 2022, value: 3.4 },
+          { year: 2023, value: 3.5 }
+        ],
+        internetPenetration: [
+          { year: 2019, value: 88.1 },
+          { year: 2020, value: 89.8 },
+          { year: 2021, value: 91.2 },
+          { year: 2022, value: 92.5 },
+          { year: 2023, value: 93.8 }
+        ],
+        stemGraduates: [
+          { year: 2019, value: 35.2 },
+          { year: 2020, value: 36.1 },
+          { year: 2021, value: 36.8 },
+          { year: 2022, value: 37.4 },
+          { year: 2023, value: 38.0 }
+        ],
+        patentApplications: [
+          { year: 2019, value: 67423 },
+          { year: 2020, value: 62105 },
+          { year: 2021, value: 65872 },
+          { year: 2022, value: 68341 },
+          { year: 2023, value: 70125 }
+        ],
+        renewableEnergy: [
+          { year: 2019, value: 17.4 },
+          { year: 2020, value: 19.3 },
+          { year: 2021, value: 21.0 },
+          { year: 2022, value: 22.8 },
+          { year: 2023, value: 24.5 }
+        ]
+      },
+      education: {
+        literacyRate: [
+          { year: 2019, value: 99.0 },
+          { year: 2020, value: 99.2 },
+          { year: 2021, value: 99.4 },
+          { year: 2022, value: 99.6 },
+          { year: 2023, value: 99.8 }
+        ],
+        schoolEnrollment: [
+          { year: 2019, value: 95.0 },
+          { year: 2020, value: 95.2 },
+          { year: 2021, value: 95.4 },
+          { year: 2022, value: 95.6 },
+          { year: 2023, value: 95.8 }
+        ],
+        pisaScores: [
+          { year: 2019, value: 500.0 },
+          { year: 2020, value: 502.0 },
+          { year: 2021, value: 504.0 },
+          { year: 2022, value: 506.0 },
+          { year: 2023, value: 508.0 }
+        ],
+        educationExpenditure: [
+          { year: 2019, value: 5.5 },
+          { year: 2020, value: 5.6 },
+          { year: 2021, value: 5.7 },
+          { year: 2022, value: 5.8 },
+          { year: 2023, value: 5.9 }
+        ],
+        stemGraduatesPerc: [
+          { year: 2019, value: 30.0 },
+          { year: 2020, value: 30.5 },
+          { year: 2021, value: 31.0 },
+          { year: 2022, value: 31.5 },
+          { year: 2023, value: 32.0 }
+        ]
+      },
+      civic: {
+        freedomSpeechIndex: [
+          { year: 2019, value: 100.0 },
+          { year: 2020, value: 100.2 },
+          { year: 2021, value: 100.4 },
+          { year: 2022, value: 100.6 },
+          { year: 2023, value: 100.8 }
+        ],
+        pressFreedom: [
+          { year: 2019, value: 100.0 },
+          { year: 2020, value: 100.2 },
+          { year: 2021, value: 100.4 },
+          { year: 2022, value: 100.6 },
+          { year: 2023, value: 100.8 }
+        ],
+        publicOpinionFreeSpeech: [
+          { year: 2019, value: 100.0 },
+          { year: 2020, value: 100.2 },
+          { year: 2021, value: 100.4 },
+          { year: 2022, value: 100.6 },
+          { year: 2023, value: 100.8 }
+        ],
+        voterTurnout: [
+          { year: 2019, value: 80.0 },
+          { year: 2020, value: 80.2 },
+          { year: 2021, value: 80.4 },
+          { year: 2022, value: 80.6 },
+          { year: 2023, value: 80.8 }
+        ],
+        trustInGovernment: [
+          { year: 2019, value: 70.0 },
+          { year: 2020, value: 70.2 },
+          { year: 2021, value: 70.4 },
+          { year: 2022, value: 70.6 },
+          { year: 2023, value: 70.8 }
+        ]
+      },
+      environment: {
+        carbonEmissions: [
+          { year: 2019, value: 10.0 },
+          { year: 2020, value: 9.8 },
+          { year: 2021, value: 9.6 },
+          { year: 2022, value: 9.4 },
+          { year: 2023, value: 9.2 }
+        ],
+        airQualityIndex: [
+          { year: 2019, value: 50.0 },
+          { year: 2020, value: 50.2 },
+          { year: 2021, value: 50.4 },
+          { year: 2022, value: 50.6 },
+          { year: 2023, value: 50.8 }
+        ],
+        forestCoverage: [
+          { year: 2019, value: 30.0 },
+          { year: 2020, value: 30.2 },
+          { year: 2021, value: 30.4 },
+          { year: 2022, value: 30.6 },
+          { year: 2023, value: 30.8 }
+        ],
+        renewableEnergyUsage: [
+          { year: 2019, value: 20.0 },
+          { year: 2020, value: 20.2 },
+          { year: 2021, value: 20.4 },
+          { year: 2022, value: 20.6 },
+          { year: 2023, value: 20.8 }
+        ],
+        waterQuality: [
+          { year: 2019, value: 50.0 },
+          { year: 2020, value: 50.2 },
+          { year: 2021, value: 50.4 },
+          { year: 2022, value: 50.6 },
+          { year: 2023, value: 50.8 }
         ]
       }
     }

@@ -21,8 +21,10 @@ export default function Dashboard() {
             <div>
               <h1 className="text-4xl font-bold">Nation Pulse 🌐</h1>
               <p className="mt-2 text-muted-foreground">
-                A comprehensive dashboard visualizing economic and social indicators across different countries.
-                Track GDP growth, unemployment rates, and various other metrics to understand national development trends.
+                This site makes global and national data accessible to everyone.
+                It empowers citizens to track progress, demand accountability, and work toward a more prosperous future.
+
+
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -44,12 +46,13 @@ export default function Dashboard() {
 
           {/* Main Dashboard */}
           <Tabs defaultValue="economic" className="space-y-4">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 gap-2">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 gap-2">
               <TabsTrigger value="economic">Economic</TabsTrigger>
               <TabsTrigger value="social">Social</TabsTrigger>
-              <TabsTrigger value="health">Health</TabsTrigger>
-              <TabsTrigger value="financial">Financial</TabsTrigger>
-              <TabsTrigger value="fiscal">Fiscal</TabsTrigger>
+              <TabsTrigger value="technology">Technology</TabsTrigger>
+              <TabsTrigger value="education">Education</TabsTrigger>
+              <TabsTrigger value="civic">Civic</TabsTrigger>
+              <TabsTrigger value="environment">Environment</TabsTrigger>
             </TabsList>
 
             {/* Economic Indicators */}
@@ -78,6 +81,58 @@ export default function Dashboard() {
                     source={{
                       name: "International Labour Organization (ILO)",
                       url: "https://ilostat.ilo.org/data/"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.economic.inflationRate}
+                    xField="year"
+                    yField="value"
+                    title="Inflation Rate (%)"
+                    description="Annual change in consumer prices. Moderate inflation (2-3%) is typically considered healthy for economic growth."
+                    source={{
+                      name: "World Bank Development Indicators",
+                      url: "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.economic.publicDebt}
+                    xField="year"
+                    yField="value"
+                    title="Public Debt (% of GDP)"
+                    description="Total government debt as a percentage of GDP. High levels may affect government spending capacity and economic stability."
+                    source={{
+                      name: "IMF World Economic Outlook",
+                      url: "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.economic.tradeBalance}
+                    xField="year"
+                    yField="value"
+                    title="Trade Balance (% of GDP)"
+                    description="Difference between exports and imports. Positive values indicate a trade surplus, negative values a deficit."
+                    source={{
+                      name: "World Bank",
+                      url: "https://data.worldbank.org/indicator/NE.RSB.GNFS.ZS"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.economic.incomeInequality}
+                    xField="year"
+                    yField="value"
+                    title="Income Inequality (Gini Coefficient)"
+                    description="Measure of income distribution inequality. A value of 0 represents perfect equality, while 100 indicates maximum inequality."
+                    source={{
+                      name: "World Bank",
+                      url: "https://data.worldbank.org/indicator/SI.POV.GINI"
                     }}
                   />
                 </Card>
@@ -113,99 +168,261 @@ export default function Dashboard() {
                     }}
                   />
                 </Card>
-              </div>
-            </TabsContent>
-
-            {/* Health & Safety */}
-            <TabsContent value="health" className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card>
                   <Chart
-                    data={country.data.health.lifeExpectancy}
+                    data={country.data.social.socialSupport}
                     xField="year"
                     yField="value"
-                    title="Life Expectancy (Years)"
-                    description="Average number of years a newborn can expect to live. This is a key indicator of population health and quality of healthcare systems."
+                    title="Social Support (0-10)"
+                    description="Measure of social connections and community support networks. Higher scores indicate stronger social cohesion."
                     source={{
-                      name: "World Health Organization",
-                      url: "https://www.who.int/data/gho/data/indicators"
+                      name: "OECD Better Life Index",
+                      url: "https://www.oecdbetterlifeindex.org/"
                     }}
                   />
                 </Card>
                 <Card>
                   <Chart
-                    data={country.data.health.healthcareAccess}
+                    data={country.data.social.personalSecurity}
                     xField="year"
                     yField="value"
-                    title="Healthcare Access (0-10)"
-                    description="Measure of healthcare system accessibility, including factors like coverage, waiting times, and out-of-pocket costs. Higher scores indicate better access."
+                    title="Personal Security (0-10)"
+                    description="Assessment of personal safety and security in daily life. Higher scores indicate greater perceived safety."
                     source={{
-                      name: "OECD Health Statistics",
-                      url: "https://www.oecd.org/health/health-statistics.htm"
+                      name: "OECD Better Life Index",
+                      url: "https://www.oecdbetterlifeindex.org/"
                     }}
                   />
                 </Card>
               </div>
             </TabsContent>
 
-            {/* Financial Well-being */}
-            <TabsContent value="financial" className="space-y-4">
+            {/* Technology */}
+            <TabsContent value="technology" className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card>
                   <Chart
-                    data={country.data.financial.householdIncome}
+                    data={country.data.technology.rdExpenditure}
                     xField="year"
                     yField="value"
-                    title="Household Income (€)"
-                    description="Average annual disposable income per household, adjusted for inflation. This indicates the purchasing power and living standards of households."
+                    title="R&D Expenditure (% of GDP)"
+                    description="Research and development spending as a percentage of GDP. Higher investment typically indicates stronger innovation capacity."
                     source={{
-                      name: "Eurostat",
-                      url: "https://ec.europa.eu/eurostat/web/income-and-living-conditions"
+                      name: "UNESCO Institute for Statistics",
+                      url: "http://data.uis.unesco.org/"
                     }}
                   />
                 </Card>
                 <Card>
                   <Chart
-                    data={country.data.financial.savingsRate}
+                    data={country.data.technology.internetPenetration}
                     xField="year"
                     yField="value"
-                    title="Savings Rate (%)"
-                    description="Percentage of disposable income that households save. Higher rates indicate greater financial security and future investment capacity."
+                    title="Internet Penetration (%)"
+                    description="Percentage of population with internet access. A key indicator of digital infrastructure and accessibility."
                     source={{
-                      name: "OECD National Accounts",
-                      url: "https://data.oecd.org/hha/household-savings.htm"
+                      name: "International Telecommunication Union",
+                      url: "https://www.itu.int/en/ITU-D/Statistics/"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.technology.stemGraduates}
+                    xField="year"
+                    yField="value"
+                    title="STEM Graduates (%)"
+                    description="Percentage of graduates in Science, Technology, Engineering, and Mathematics fields."
+                    source={{
+                      name: "OECD Education Statistics",
+                      url: "https://data.oecd.org/education.htm"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.technology.patentApplications}
+                    xField="year"
+                    yField="value"
+                    title="Patent Applications"
+                    description="Number of patent applications filed. Indicates innovation output and technological development."
+                    source={{
+                      name: "World Intellectual Property Organization",
+                      url: "https://www.wipo.int/portal/en/index.html"
                     }}
                   />
                 </Card>
               </div>
             </TabsContent>
 
-            {/* Fiscal Health */}
-            <TabsContent value="fiscal" className="space-y-4">
+            {/* Education */}
+            <TabsContent value="education" className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card>
                   <Chart
-                    data={country.data.fiscal.governmentBalance}
+                    data={country.data.education.literacyRate}
                     xField="year"
                     yField="value"
-                    title="Government Balance (% of GDP)"
-                    description="Government's fiscal position as a percentage of GDP. Positive values indicate a surplus, while negative values show a deficit."
+                    title="Literacy Rate (%)"
+                    description="Percentage of population aged 15 and above who can read and write. A fundamental indicator of educational achievement."
                     source={{
-                      name: "IMF Fiscal Monitor",
-                      url: "https://www.imf.org/external/datamapper/fiscalmonitor"
+                      name: "UNESCO Institute for Statistics",
+                      url: "http://data.uis.unesco.org/"
                     }}
                   />
                 </Card>
                 <Card>
                   <Chart
-                    data={country.data.fiscal.taxRevenue}
+                    data={country.data.education.schoolEnrollment}
                     xField="year"
                     yField="value"
-                    title="Tax Revenue (% of GDP)"
-                    description="Total tax revenue as a percentage of GDP. This indicates the government's capacity to fund public services and infrastructure."
+                    title="School Enrollment Rate (%)"
+                    description="Percentage of school-age population enrolled in education. Indicates educational system coverage."
                     source={{
-                      name: "OECD Revenue Statistics",
-                      url: "https://stats.oecd.org/Index.aspx?DataSetCode=REV"
+                      name: "World Bank Education Statistics",
+                      url: "https://data.worldbank.org/topic/education"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.education.pisaScores}
+                    xField="year"
+                    yField="value"
+                    title="PISA Scores"
+                    description="Programme for International Student Assessment scores. Measures educational quality and student performance."
+                    source={{
+                      name: "OECD PISA",
+                      url: "https://www.oecd.org/pisa/"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.education.educationExpenditure}
+                    xField="year"
+                    yField="value"
+                    title="Education Expenditure (% of GDP)"
+                    description="Public spending on education as a percentage of GDP. Shows national commitment to education."
+                    source={{
+                      name: "World Bank",
+                      url: "https://data.worldbank.org/indicator/SE.XPD.TOTL.GD.ZS"
+                    }}
+                  />
+                </Card>
+              </div>
+            </TabsContent>
+
+            {/* Civic Engagement */}
+            <TabsContent value="civic" className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Card>
+                  <Chart
+                    data={country.data.civic.freedomSpeechIndex}
+                    xField="year"
+                    yField="value"
+                    title="Freedom of Speech Index"
+                    description="Measure of freedom of expression and press freedom. Higher scores indicate greater freedom."
+                    source={{
+                      name: "Reporters Without Borders",
+                      url: "https://rsf.org/en"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.civic.pressFreedom}
+                    xField="year"
+                    yField="value"
+                    title="Press Freedom Score"
+                    description="Assessment of media independence and freedom of journalists. Higher scores indicate greater press freedom."
+                    source={{
+                      name: "Freedom House",
+                      url: "https://freedomhouse.org/"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.civic.voterTurnout}
+                    xField="year"
+                    yField="value"
+                    title="Voter Turnout (%)"
+                    description="Percentage of eligible voters who cast ballots in elections. Indicates civic participation."
+                    source={{
+                      name: "International IDEA",
+                      url: "https://www.idea.int/"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.civic.trustInGovernment}
+                    xField="year"
+                    yField="value"
+                    title="Trust in Government (%)"
+                    description="Percentage of population expressing confidence in national government. Measures institutional trust."
+                    source={{
+                      name: "OECD Government at a Glance",
+                      url: "https://www.oecd.org/gov/government-at-a-glance/"
+                    }}
+                  />
+                </Card>
+              </div>
+            </TabsContent>
+
+            {/* Environment */}
+            <TabsContent value="environment" className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Card>
+                  <Chart
+                    data={country.data.environment.carbonEmissions}
+                    xField="year"
+                    yField="value"
+                    title="Carbon Emissions (tons per capita)"
+                    description="CO2 emissions per person. Key indicator of climate impact and environmental sustainability."
+                    source={{
+                      name: "Global Carbon Project",
+                      url: "https://www.globalcarbonproject.org/"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.environment.airQualityIndex}
+                    xField="year"
+                    yField="value"
+                    title="Air Quality Index"
+                    description="Measure of air pollution levels. Lower values indicate better air quality."
+                    source={{
+                      name: "World Air Quality Index",
+                      url: "https://waqi.info/"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.environment.forestCoverage}
+                    xField="year"
+                    yField="value"
+                    title="Forest Coverage (%)"
+                    description="Percentage of land area covered by forests. Indicates biodiversity and environmental health."
+                    source={{
+                      name: "FAO Forest Resources Assessment",
+                      url: "https://www.fao.org/forest-resources-assessment/"
+                    }}
+                  />
+                </Card>
+                <Card>
+                  <Chart
+                    data={country.data.environment.waterQuality}
+                    xField="year"
+                    yField="value"
+                    title="Water Quality Index"
+                    description="Measure of water quality and safety. Higher scores indicate better water quality."
+                    source={{
+                      name: "UN Water",
+                      url: "https://www.unwater.org/"
                     }}
                   />
                 </Card>
@@ -218,7 +435,7 @@ export default function Dashboard() {
       <a
         target="_blank"
         rel="noopener"
-        className="fixed bottom-0 right-0 z-50 flex items-center gap-2 border-t border-l rounded-tl-md bg-background text-foreground p-2 text-sm"
+        className="fixed bottom-0 right-0 z-50 flex items-center gap-2 border-t border-l rounded-tl-md bg-background text-foreground p-2 text-sm transition-colors hover:text-pink-500"
         href="https://alexfranz.com/"
       >
         <img
