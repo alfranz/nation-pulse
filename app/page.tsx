@@ -112,19 +112,6 @@ export default function Dashboard() {
                 </Card>
                 <Card>
                   <Chart
-                    data={country.data.economic.tradeBalance}
-                    xField="year"
-                    yField="value"
-                    title="Trade Balance (% of GDP)"
-                    description="Difference between exports and imports. Positive values indicate a trade surplus, negative values a deficit."
-                    source={{
-                      name: "World Bank",
-                      url: "https://data.worldbank.org/indicator/NE.RSB.GNFS.ZS"
-                    }}
-                  />
-                </Card>
-                <Card>
-                  <Chart
                     data={country.data.economic.incomeInequality}
                     xField="year"
                     yField="value"
