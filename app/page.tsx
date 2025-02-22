@@ -23,8 +23,6 @@ export default function Dashboard() {
               <p className="mt-2 text-muted-foreground">
                 This site makes global and national data accessible to everyone.
                 It empowers citizens to track progress, demand accountability, and work toward a more prosperous future.
-
-
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -107,19 +105,6 @@ export default function Dashboard() {
                     source={{
                       name: "IMF World Economic Outlook",
                       url: "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO"
-                    }}
-                  />
-                </Card>
-                <Card>
-                  <Chart
-                    data={country.data.economic.tradeBalance}
-                    xField="year"
-                    yField="value"
-                    title="Trade Balance (% of GDP)"
-                    description="Difference between exports and imports. Positive values indicate a trade surplus, negative values a deficit."
-                    source={{
-                      name: "World Bank",
-                      url: "https://data.worldbank.org/indicator/NE.RSB.GNFS.ZS"
                     }}
                   />
                 </Card>
