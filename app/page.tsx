@@ -23,8 +23,6 @@ export default function Dashboard() {
               <p className="mt-2 text-muted-foreground">
                 This site makes global and national data accessible to everyone.
                 It empowers citizens to track progress, demand accountability, and work toward a more prosperous future.
-
-
               </p>
             </div>
             <div className="flex items-center gap-4">
