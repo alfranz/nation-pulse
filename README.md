@@ -35,7 +35,7 @@ All data is sourced from official government and international organization stat
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/alfranz/nationpulse.git
+git clone https://github.com/alfranz/nation-pulse.git
 cd nationpulse
 ```
 
@@ -53,17 +53,10 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Project Structure 📁
+5. Run type-check:
 
-```
-nationpulse/
-├── app/                # Next.js app directory
-├── components/        # React components
-│   ├── charts/       # Chart components
-│   └── ui/           # UI components
-├── lib/              # Utilities and data
-│   └── data/         # Static data files
-└── public/           # Static assets
+```bash
+npm run type-check
 ```
 
 ## Contributing 🤝
